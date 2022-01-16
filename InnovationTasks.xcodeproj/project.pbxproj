@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C97A7F0278BF8AF0004D040 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97A7EF278BF8AF0004D040 /* TaskTableViewCell.swift */; };
 		5CB07F942783EEA90004E7CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB07F932783EEA90004E7CB /* AppDelegate.swift */; };
 		5CB07F962783EEA90004E7CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB07F952783EEA90004E7CB /* SceneDelegate.swift */; };
 		5CB07F9B2783EEA90004E7CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CB07F992783EEA90004E7CB /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C97A7EF278BF8AF0004D040 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		5CB07F902783EEA90004E7CB /* InnovationTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnovationTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB07F932783EEA90004E7CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CB07F952783EEA90004E7CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C97A7EE278BF85C0004D040 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				5C97A7EF278BF8AF0004D040 /* TaskTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		5CB07F872783EEA90004E7CB = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		5CB07FAA2783F9C00004E7CB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C97A7EE278BF85C0004D040 /* cells */,
 				5CB07FAB2783FA2C0004E7CB /* TasksTableViewController.swift */,
 			);
 			path = Controllers;
@@ -163,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C97A7F0278BF8AF0004D040 /* TaskTableViewCell.swift in Sources */,
 				5CB07F942783EEA90004E7CB /* AppDelegate.swift in Sources */,
 				5CB07F962783EEA90004E7CB /* SceneDelegate.swift in Sources */,
 				5CC52114278953EE00BCE7EA /* Task.swift in Sources */,
