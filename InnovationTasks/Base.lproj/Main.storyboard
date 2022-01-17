@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="8Il-7i-jEf" customClass="TaskTableViewCell" customModule="InnovationTasks" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="72" id="8Il-7i-jEf" customClass="TaskTableViewCell" customModule="InnovationTasks" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Il-7i-jEf" id="GGU-C4-HVZ">
@@ -25,6 +25,9 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40Y-dL-daD">
                                             <rect key="frame" x="11" y="13" width="70" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="40Y-dL-daD" secondAttribute="height" multiplier="7:3" id="WKk-oK-lnV"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -37,6 +40,9 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06/11/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syZ-MS-8s8">
                                             <rect key="frame" x="17" y="38" width="58" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="syZ-MS-8s8" secondAttribute="height" multiplier="29:7" id="wPr-pt-eP9"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -74,6 +80,13 @@
                                         <constraint firstItem="nNA-zU-K6M" firstAttribute="top" secondItem="GGU-C4-HVZ" secondAttribute="top" constant="11" id="x10-HX-sNb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryNameLabel" destination="R3i-qt-aC8" id="8uJ-0Y-6Xd"/>
+                                    <outlet property="categoryView" destination="GGU-C4-HVZ" id="K6L-5a-9WA"/>
+                                    <outlet property="dateLabel" destination="GGU-C4-HVZ" id="9ar-Xs-AbD"/>
+                                    <outlet property="hourLabel" destination="p7H-kN-n9t" id="Edl-RU-QxN"/>
+                                    <outlet property="taskNameLabel" destination="R3i-qt-aC8" id="0Kw-qI-tNm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
