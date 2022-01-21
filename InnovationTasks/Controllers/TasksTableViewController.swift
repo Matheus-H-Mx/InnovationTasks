@@ -42,7 +42,7 @@ private var dateFormater: DateFormatter = DateFormatter()
         
         cell.categoryNameLabel.text = task.category.name
         cell.categoryView.backgroundColor = task.category.color
-        cell.taskDescriptionLabel.text = task.name
+        cell.taskDescrptionLabel.text = task.name
         
         
         return cell
