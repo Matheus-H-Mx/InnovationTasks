@@ -18,6 +18,8 @@
 		5CB07FA02783EEAB0004E7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB07F9F2783EEAB0004E7CB /* Assets.xcassets */; };
 		5CB07FA32783EEAB0004E7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CB07FA12783EEAB0004E7CB /* LaunchScreen.storyboard */; };
 		5CB07FAC2783FA2C0004E7CB /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB07FAB2783FA2C0004E7CB /* TasksTableViewController.swift */; };
+		5CB4874027A3B5C1008E1AD5 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB4873F27A3B5C1008E1AD5 /* CategoriesTableViewController.swift */; };
+		5CB4874327A3B7C9008E1AD5 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB4874227A3B7C9008E1AD5 /* CategoryRepository.swift */; };
 		5CC52114278953EE00BCE7EA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC52113278953EE00BCE7EA /* Task.swift */; };
 		5CC521162789560100BCE7EA /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC521152789560100BCE7EA /* Category.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		5CB07FA22783EEAB0004E7CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CB07FA42783EEAB0004E7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CB07FAB2783FA2C0004E7CB /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		5CB4873F27A3B5C1008E1AD5 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		5CB4874227A3B7C9008E1AD5 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
 		5CC52113278953EE00BCE7EA /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		5CC521152789560100BCE7EA /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +68,7 @@
 		5CB07F872783EEA90004E7CB = {
 			isa = PBXGroup;
 			children = (
+				5CB4874127A3B77F008E1AD5 /* Repositories */,
 				5CB07F922783EEA90004E7CB /* InnovationTasks */,
 				5CB07F912783EEA90004E7CB /* Products */,
 			);
@@ -99,8 +104,17 @@
 				5C97A7EE278BF85C0004D040 /* cells */,
 				5CB07FAB2783FA2C0004E7CB /* TasksTableViewController.swift */,
 				5C9DF188279A7BAF006F214B /* CreateTaskViewController.swift */,
+				5CB4873F27A3B5C1008E1AD5 /* CategoriesTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5CB4874127A3B77F008E1AD5 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				5CB4874227A3B7C9008E1AD5 /* CategoryRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		5CC521122789534000BCE7EA /* Models */ = {
@@ -188,9 +202,11 @@
 				5C97A7F0278BF8AF0004D040 /* TaskTableViewCell.swift in Sources */,
 				5CB07F942783EEA90004E7CB /* AppDelegate.swift in Sources */,
 				5C9DF18D279A7F67006F214B /* DateTimeTableViewCell.swift in Sources */,
+				5CB4874027A3B5C1008E1AD5 /* CategoriesTableViewController.swift in Sources */,
 				5CB07F962783EEA90004E7CB /* SceneDelegate.swift in Sources */,
 				5CC52114278953EE00BCE7EA /* Task.swift in Sources */,
 				5CB07FAC2783FA2C0004E7CB /* TasksTableViewController.swift in Sources */,
+				5CB4874327A3B7C9008E1AD5 /* CategoryRepository.swift in Sources */,
 				5CB07F9E2783EEA90004E7CB /* InnovationTasks.xcdatamodeld in Sources */,
 				5CC521162789560100BCE7EA /* Category.swift in Sources */,
 			);
