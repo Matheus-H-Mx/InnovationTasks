@@ -12,6 +12,10 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
     private var dataPicker: UIDatePicker =  UIDatePicker ()
     private var dateFormatter = DateFormatter()
     private var selectedIndexPath: IndexPath?
+    private var taskRepository = TaskRepository.instance
+
+    
+    var task: Task = Task()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +47,13 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskDescriptionCell", for: indexPath) as! TaskDescriptionTableViewCell
+            cell.TaskDescriptionTextField.delegate = self
             return cell
         }
         
         if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+            cell.textLabel?.text = self.task.category.name
             return cell
         }
         
@@ -61,8 +67,10 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Action buttons
     
     @IBAction func tapSaveButton(_sender: Any) {
-        print("Task Saved")
+        taskRepository.save(task: task)
+        self.navigationController?.popViewController(animated: true)
     }
+    
     // MARK: - UITextFieldDelegate Methods
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -71,6 +79,10 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
             self.selectedIndexPath = tableView.indexPath(for: dateCell)
         }
         
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        self.task.name = textField.text!
     }
     
     // MARK: - UIView Functions
@@ -95,6 +107,20 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
             if let dateCell = cell {
                 dateCell.dateTimeTextField.text = dateFormatter.string(from: dataPicker.date)
                 self.view.endEditing(true)
+                self.task.date = dataPicker.date
+            }
+        }
+    }
+    
+    // MARK: - Segue Methods
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToCategoriesTableViewController" {
+            let categoriesController = segue.destination as! CategoriesTableViewController
+            categoriesController.chooseCategory = { category in
+                self.task.category = category
+                self.tableView.reloadData()
             }
         }
     }

@@ -7,31 +7,29 @@
 
 import UIKit
 
-
-let work = Category(name: "Work", color: UIColor.green)
-let study = Category(name: "Study", color: UIColor.red)
-let tasks: [Task]  = [
-    Task(name: "create code to tomorrow", date: Date(), category: work),
-    
-    Task(name: "Study math for my computer science class", date: Date(), category: study),
-]
-
-
 class TasksTableViewController: UITableViewController {
 
-private var dateFormater: DateFormatter = DateFormatter()
+    private var dateFormater: DateFormatter = DateFormatter()
+    
+    private var tasks: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.tasks = TaskRepository.instance.getTasks()
     }
     
     override func tableView (_ tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
-        return  tasks.count
+        return  tasks!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskTableViewCell
-        let task = tasks[indexPath.row]
+        let task = tasks![indexPath.row]
         
         
         dateFormater.dateFormat = "HH:mm"
