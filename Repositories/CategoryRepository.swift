@@ -10,13 +10,32 @@ import UIKit
 
 class CategoryRepository {
     
-    static func getCategories() -> [Category] {
-        let categories = [
-            Category(name: "Work", color: UIColor.green),
-            Category(name: "Study", color: UIColor.blue),
-            Category(name: "To Dos", color: UIColor.yellow),
-            Category(name: "Reminders", color: UIColor.red),
-        ]
-        return categories;
+    
+    
+    
+    private var coreDataStack: CoreDataStack
+    
+    init(coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
+    }
+    
+   func getCategories() -> [Category] {
+       var categories: [Category] = []
+       let categoriesData = self.coreDataStack.list(entityName: "CategoryData") as! [CategoryData]
+       for categoryData in categoriesData {
+           let marketing = Category(id: categoriesData.id, name: categoriesData.name!, color: categoriesData.UIColor)
+           categories.append(Category)
+       }
+              
+       return categories
+    }
+    
+    func getCategoryDataByName(name: String) -> CategoryData {
+        return self.coreDataStack.getByvalue(entityName: "CategoryData", field:"name", value: name)
+    }
+    
+    func getCategoryByName(name: String) -> Category {
+        let categoryData: CategoryData = getCategoryDataByName(name: name)
+        return Category(id: categoryData.id!, name: categoryData.name!, color: categoryData.color as! UIColor)
     }
 }

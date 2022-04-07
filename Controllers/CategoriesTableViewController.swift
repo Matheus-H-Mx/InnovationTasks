@@ -9,12 +9,13 @@ import UIKit
 
 class CategoriesTableViewController: UITableViewController {
     
-    let  categories = CategoryRepository.getCategories()
-    
+    var categoryRepository: CategoryRepository?
+    var  categories: [Category] = []
     var chooseCategory : ((Category) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.categoryRepository = CategoryRepository(coreDataStack: appDelegate.coreDataStack)
     }
     
     

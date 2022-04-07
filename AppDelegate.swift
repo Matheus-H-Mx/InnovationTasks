@@ -12,18 +12,16 @@ import CoreData
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    lazy var coreDataStack: CoreDataStack = CoreDataStack()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        createCategoriesIfDontExist()
         return true
     }
 
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
@@ -33,8 +31,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func createCategoriesIfDontExist() {
+        let categories = coreDataStack.list(entityName: "CategoryData")
+        if categories.isEmpty {
+            createCategories()
+        }
+    }
+    
+    func createCategories() {
+        let colorWithNames: [String:UIColor] = ["Marketing": .black, "Study": .blue, "Food": .green]
+        for (name, color) in colorWithNames {
+            let category = CategoryData(context: self.coreDataStack.context)
+            category.id    = UUID()
+            category.name  = name
+            category.color = color
+            
+            self.coreDataStack.save()
+        }
+    }
     // MARK: - Core Data stack
-
+    /* ------
+     
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
         /*
          The persistent container for the application. This implementation
@@ -77,6 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+----- */
 }
 

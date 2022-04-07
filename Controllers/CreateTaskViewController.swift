@@ -11,14 +11,19 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
     
     private var dataPicker: UIDatePicker =  UIDatePicker ()
     private var dateFormatter = DateFormatter()
+    
     private var selectedIndexPath: IndexPath?
-    private var taskRepository = TaskRepository.instance
-
+    
+    private var taskRepository = TaskRepository?
+    private var categoryRepository = CategoryRepository?
     
     var task: Task = Task()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.categoryRepository = CategoryRepository(coreDataStack: appDelegate.coreDataStack)
+        self.taskRepository = TaskRepository(coreDataStack: appDelegate.coreDataStack, categoryRepository: self.categoryRepository!)
+        
         dateFormatter.dateFormat = "dd/MM/yyy HH:mm"
         dataPicker.datePickerMode = .dateAndTime
     }
@@ -67,7 +72,7 @@ class CreateTaskViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Action buttons
     
     @IBAction func tapSaveButton(_sender: Any) {
-        taskRepository.save(task: task)
+        taskRepository!.save(task: task)
         self.navigationController?.popViewController(animated: true)
     }
     
